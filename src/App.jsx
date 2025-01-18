@@ -13,7 +13,7 @@ const App = () => {
       {/* Padding yerine genel bir className ya da düzenleme yapılabilir */}
       <div className="app-container">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/my-new-app/" element={<Home />} />
         </Routes>
       </div>
     </Router>
