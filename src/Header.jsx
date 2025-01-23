@@ -17,7 +17,7 @@ const Header = () => {
           <Link
             to="home-section"
             smooth={true}
-            duration={300}
+            duration={400}
             className="home-link"
           >
             Home
@@ -27,7 +27,7 @@ const Header = () => {
           <Link
             to="about-section"
             smooth={true}
-            duration={300}
+            duration={400}
             offset={-120}
             className="about-link"
           >
@@ -38,7 +38,7 @@ const Header = () => {
           <Link
             to="events-section"
             smooth={true}
-            duration={300}
+            duration={400}
             offset = {-70}
             className="events-link"
           >
@@ -49,7 +49,7 @@ const Header = () => {
           <Link
             to="profile-section"
             smooth={true}
-            duration={300}
+            duration={400}
             offset={-50}
             className="profile-link"
           >
@@ -60,7 +60,7 @@ const Header = () => {
           <Link
             to="join-section"
             smooth={true}
-            duration={300}
+            duration={400}
             className="join-link"
           >
             Join

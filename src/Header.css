@@ -55,7 +55,7 @@
 }
 
 .nav-list .home-link {
-  background: linear-gradient(to right, #ff6161, #ffc78b); /* Turuncu tonlarında linear gradient */
+  background: linear-gradient(to right, #ff6161, #fff08b); /* Turuncu tonlarında linear gradient */
   color: transparent; /* Metin rengini şeffaf yap */
   background-clip: text; /* Gradient'i metne uygulama */
   -webkit-background-clip: text; /* Webkit tarayıcılar için */
@@ -64,7 +64,7 @@
 }
 
 .nav-list .about-link {
-  background: linear-gradient(135deg, #fbff00, #22ff00); /* Turuncu tonlarında linear gradient */
+  background: linear-gradient(135deg, #ffee00, #00bbff); /* Turuncu tonlarında linear gradient */
   color: transparent; /* Metin rengini şeffaf yap */
   background-clip: text; /* Gradient'i metne uygulama */
   -webkit-background-clip: text; /* Webkit tarayıcılar için */
@@ -139,5 +139,13 @@
 }
 
 @media (max-width: 480px) {
-  
+  .header{
+    padding: 10px 20px;
+  }
+  .nav-list li {
+    font-size: 12px;
+    font-weight: 60;
+    margin-left: 15px;
+
+  }
 }

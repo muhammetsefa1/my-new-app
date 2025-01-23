@@ -7,16 +7,7 @@ body {
   flex-direction: column;
   animation: fadeIn 1s ease-in;
 }
-@keyframes scaleUp {
-  0% {
-    transform: scale(1);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
+
 
 @keyframes fadeIn {
   from {
@@ -293,8 +284,8 @@ body {
 .form-link-container {
   text-align: center;
   color: white;
-  margin-top: 15%;
-  margin-bottom: 15%;
+  margin-top: 17%;
+  margin-bottom: 17%;
   padding: 1% 10%; /* Yüzde birimleri ile padding */
   background-color: #000000;
   border-radius: 8px;
@@ -342,10 +333,12 @@ body {
     width: 80px; /* Fotoğraf genişliği */
     height: 80px; /* Fotoğraf yüksekliği */
   }
-  image-container {
+  .image-container {
     grid-template-columns: repeat(1,1fr);
     flex-direction: column; /* İçerikleri dikey hizala */
-    gap: 20px; /* Metin ve resim arasındaki boşluğu küçült */
+    gap: 50px; /* Metin ve resim arasındaki boşluğu küçült */
+    margin-top: 15%;
+    margin-bottom: 15%;
   }
   .text-content {
     font-size: 14px;
@@ -372,16 +365,65 @@ body {
     width: 30px; /* Logo genişliği */
     height: 30px; /* Logo yüksekliği */
   }
+  .form-link-container {
+    margin-top: 30%;
+    margin-bottom: 40%;
+  }
+  
+  .form-link-container h2 {
+    margin-bottom: 5%;
+    font-size: 5vw; /* Ekran genişliğine göre font büyüklüğü */
+  }
+  
+  .form-link-container p {
+    margin-bottom: 6%;
+    font-size: 2vw; /* Ekran genişliğine göre font büyüklüğü */
+  }
+  .form-button {
+    padding: 4% 8%; /* Buton iç boşluğunu artır */
+    font-size: 3vw; /* Yazı boyutunu büyüt */
+    border-radius: 8px;
+  }
 }
 
 @media (max-width: 480px) {
+  .background-img {
+    object-fit: cover; /* Küçük ekranlarda resim tamamen görünsün */
+  }
+  .image-container{
+    margin-top: 20%;
+    margin-bottom: 20%;
+  }
   .profile-container {
     grid-template-columns: 1fr; /* Daha küçük ekranlarda 1 sütun */
     gap: 0%;
   }
   .profile-photo {
-    width: 50px; /* Fotoğraf genişliği */
-    height: 50px; /* Fotoğraf yüksekliği */
+    width: 80px; /* Fotoğraf genişliği */
+    height: 80px; /* Fotoğraf yüksekliği */
+  }
+  .profile-name{
+    font-size: 1rem;
+  }
+  .form-link-container {
+    margin-top: 40%;
+    margin-bottom: 60%;
+    
+  }
+  
+  .form-link-container h2 {
+    margin-bottom: 6%;
+    font-size: 7vw; /* Ekran genişliğine göre font büyüklüğü */
+  }
+  
+  .form-link-container p {
+    margin-bottom: 5%;
+    font-size: 2vw; /* Ekran genişliğine göre font büyüklüğü */
+  }
+  .form-button {
+    padding: 6% 10%; /* Buton iç boşluğunu artır */
+    font-size: 3vw; /* Yazı boyutunu büyüt */
+    border-radius: 8px;
   }
 }
 
