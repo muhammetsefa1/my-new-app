@@ -151,7 +151,7 @@ body {
 }
 
 .box {
-  border: 2px solid black; /* Siyah çerçeve */
+  border: 3px solid rgb(0, 0, 0); /* Siyah çerçeve */
   border-radius: 10px; /* Köşeleri yuvarlat */
   padding: 20px;
   width: 350px; /* Kutuların genişliği */

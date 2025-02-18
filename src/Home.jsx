@@ -130,7 +130,7 @@ const Home = () => {
           </div>
         </a>
         <a
-          href="https://www.linkedin.com/in/mustafa-hundur"
+          href="https://www.linkedin.com/in/mustafa-h%C3%BCnd%C3%BCr-9b9b6b349/"
           target="_blank"
           rel="noopener noreferrer"
           className="profile-link"
@@ -159,7 +159,7 @@ const Home = () => {
           <h2>Join Our Club</h2>
           <p>Fill out our membership form by clicking the button below:</p>
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLScsJCBN1UTnn8phNAKUq5BENVj76xVgUOk7zM0bPpSgz4HjHA/viewform?usp=dialog" // Google Form linkini buraya ekleyin
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeGsCpl8jtabdCqiKs43GbdDebjtfOMUlfggkEiqc5Yr7335w/viewform?usp=dialog" // Google Form linkini buraya ekleyin
             target="_blank"
             rel="noopener noreferrer"
             className="form-button"
@@ -173,10 +173,10 @@ const Home = () => {
           <a href="https://www.instagram.com/taic.usf/" target="_blank" rel="noopener noreferrer">
             <img src={instagramLogo} alt="Instagram Logo" className="social-logo" />
           </a>
-          <a href="https://twitter.com/yourclubusername" target="_blank" rel="noopener noreferrer">
+          <a href="https://x.com/aiclubatusf" target="_blank" rel="noopener noreferrer">
             <img src={twitterLogo} alt="Twitter Logo" className="social-logo" />
           </a>
-          <a href="mailto:sefahundur1@gmail.com" target="_blank" rel="noopener noreferrer">
+          <a href="mailto:aiclubatusf@gmail.com" target="_blank" rel="noopener noreferrer">
             <img src={emailLogo} alt="Email" className="social-logo" />
           </a>
         </div>
