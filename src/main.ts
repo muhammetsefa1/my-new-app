@@ -256,7 +256,7 @@ function overlays(p: number, scroll: number, time: number) {
       }
       const c = centres[i];
       // on narrow screens, clusters on the right carry their label on the left
-      const flip = layout === 'tall' && c[0] > 0;
+      const flip = layout === 'tall' ? c[0] > 0 : c[0] > 2.3;
       l.v.set(c[0] + (flip ? -0.5 : 0.5) * k, c[1] + 0.1 * k, c[2]);
       world.project(l.v, projOut);
       const delay = clamp(vis * 1.6 - i * 0.08);
@@ -289,7 +289,7 @@ function overlays(p: number, scroll: number, time: number) {
   // 05 typing
   {
     const lp = chapterLocal(CH.question, scroll);
-    const t = smooth((lp - 0.04) / 0.56);
+    const t = smooth((lp + 0.22) / 0.52);
     const n = Math.round(t * QUESTION.length);
     if (n !== typed) {
       typed = n;
@@ -304,7 +304,7 @@ function overlays(p: number, scroll: number, time: number) {
   // 06 reading
   {
     const lp = chapterLocal(CH.answer, scroll);
-    const t = clamp((lp + 0.15) / 0.65);
+    const t = clamp((lp + 0.32) / 0.6);
     const on = Math.floor(t * (readWords.length + 1));
     readWords.forEach((w, i) => w.classList.toggle('on', i < on));
   }
@@ -312,7 +312,7 @@ function overlays(p: number, scroll: number, time: number) {
   // 07 stats
   {
     const lp = chapterLocal(CH.hive, scroll);
-    const t = easeInOutCubic(clamp((lp + 0.05) / 0.55));
+    const t = easeInOutCubic(clamp((lp + 0.3) / 0.5));
     for (const s of stats) {
       const v = s.from + (s.to - s.from) * t;
       s.el.textContent = v.toFixed(s.dec) + s.suf;
@@ -477,10 +477,18 @@ window.addEventListener('resize', () => {
       lastW = w;
       lastH = h;
     }
+    // remember where we are in the story, not the pixel offset
+    const y0 = window.scrollY;
+    const ci = Math.max(0, story.chapters.findIndex((c) => y0 >= c.top && y0 < c.top + c.height));
+    const ch = story.chapters[ci];
+    const rel = ch ? (y0 - ch.top) / Math.max(1, ch.height) : 0;
     layout = layoutFor();
     world?.setLayout(layout);
     world?.resize();
     measure();
+    const nc = story.chapters[ci];
+    if (nc) lenis.scrollTo(nc.top + rel * nc.height, { immediate: true, force: true });
+    story.p = story.coord(window.scrollY);
   }, 120);
 });
 

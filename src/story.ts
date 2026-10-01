@@ -51,14 +51,14 @@ export const STOPS: Stop[] = [
   },
   {
     key: 'vortex', shape: SHAPE.VORTEX,
-    d: P([0.2, 0.32, 0], [1.05, 0, 0.18], 0.72, [0, 0, 5.6]),
+    d: P([-0.35, 0.36, 0], [1.05, 0, 0.18], 0.68, [0, 0, 5.6]),
     m: { pos: [0, 1.05, 0], scale: 0.48, cam: [0, 0, 6] },
     size: 0.021, burst: 0.56, scatter: 0, dof: 3.6, mouse: 0.8, bloom: 0.49,
   },
   {
     key: 'query', shape: SHAPE.QMARK,
     d: P([0, 0.52, 0], [0, -0.3, 0], 0.7, [0, 0, 5.6]),
-    m: { pos: [0, 0.9, 0], scale: 0.6 },
+    m: { pos: [0, 0.78, 0], scale: 0.54 },
     size: 0.023, burst: 0.62, scatter: 0, dof: 3.5, mouse: 1, bloom: 0.41,
   },
   {

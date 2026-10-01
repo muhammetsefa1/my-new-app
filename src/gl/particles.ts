@@ -155,9 +155,16 @@ void main() {
   vec2 d = ndc - uMouse;
   d.x *= uAspect;
   float dist = length(d);
-  float f = smoothstep(0.32, 0.0, dist) * uMouseForce;
+  float rep = max(uMouseForce, 0.0);
+  float att = max(-uMouseForce, 0.0);
+  float f = smoothstep(0.32 + rep * 0.04, 0.0, dist) * rep;
   vc.xy += normalize(d + 0.0001) * f * 0.09 * -vc.z;
   vc.z += f * 0.25;
+  // press and hold: fragments spiral into the cursor
+  float g = clamp(smoothstep(0.8, 0.0, dist) * att * 0.55, 0.0, 0.88);
+  vec2 dd = rot2(d * (1.0 - g), g * (2.2 + aRand.y));
+  vc.xy += (dd - d) * (-vc.z) * 0.315;
+  vc.z += g * 0.4;
 
   vec3 lv = normalize(mat3(mv) * local);
   vec3 nv = normalize(mat3(mv) * nrm);
