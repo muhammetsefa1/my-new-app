@@ -1,14 +1,241 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Vela is the collective memory for your company. Ask anything, get the answer with its sources." />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>Vela — Your company already knows</title>
+  </head>
+  <body>
+    <canvas id="gl" aria-hidden="true"></canvas>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/ico" href="/favicon.ico" /> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>USF AI</title>
-</head>
-<body>
-  <div id="root"></div>
-  <script type="module" src="./src/main.jsx"></script>
-</body>
+    <!-- loader -------------------------------------------------------------->
+    <div class="loader" data-loader>
+      <div class="loader__top">
+        <span class="mono">Vela / collective memory</span>
+        <span class="mono">Assembling fragments</span>
+      </div>
+      <div class="loader__count"><span data-count>000</span></div>
+      <div class="loader__bar"><span data-bar></span></div>
+    </div>
+
+    <!-- chrome -------------------------------------------------------------->
+    <header class="nav" data-nav>
+      <a class="nav__logo" href="#top" aria-label="Vela, back to top" data-magnetic>
+        <span class="logo-mark" data-logo></span>
+        <span class="nav__word">vela</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#entropy" data-link>Manifesto</a>
+        <a href="#principles" data-link>Principles</a>
+        <a href="#hive" data-link>Journal</a>
+      </nav>
+      <a class="btn btn--iris nav__cta" href="#begin" data-magnetic><span>Request access</span></a>
+      <button class="nav__burger" type="button" aria-label="Open menu" aria-expanded="false" data-burger>
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <div class="menu" data-menu aria-hidden="true">
+      <nav class="menu__links">
+        <a href="#entropy" data-link><i class="mono">01</i>Manifesto</a>
+        <a href="#principles" data-link><i class="mono">02</i>Principles</a>
+        <a href="#hive" data-link><i class="mono">03</i>Journal</a>
+        <a href="#begin" data-link><i class="mono">04</i>Request access</a>
+      </nav>
+      <p class="menu__foot mono">Lisbon — London · Private beta 2026</p>
+    </div>
+
+    <aside class="hud" aria-hidden="true">
+      <div class="hud__chapter mono">
+        <span class="hud__num" data-hud-num>01</span>
+        <span class="hud__sep"></span>
+        <span class="hud__name" data-hud-name>Origin</span>
+      </div>
+      <div class="hud__hint mono" data-hud-hint>Hold anywhere to gather</div>
+      <div class="hud__rail"><span data-hud-rail></span></div>
+    </aside>
+
+    <div class="labels" aria-hidden="true" data-labels></div>
+    <div class="ring" aria-hidden="true" data-ring>
+      <svg viewBox="0 0 400 400">
+        <defs>
+          <path id="ringPath" d="M200,200 m-170,0 a170,170 0 1,1 340,0 a170,170 0 1,1 -340,0" />
+        </defs>
+        <text><textPath href="#ringPath">One orbit · every source · zero copies · one orbit · every source · zero copies ·</textPath></text>
+      </svg>
+    </div>
+
+    <div class="cursor" aria-hidden="true" data-cursor><span></span></div>
+
+    <!-- story --------------------------------------------------------------->
+    <main id="top">
+      <!-- 01 Origin -->
+      <section class="chapter chapter--hero" id="origin" data-stops="hero" data-name="Origin" style="--h: 210">
+        <div class="stage">
+          <div class="hero">
+            <p class="eyebrow mono" data-reveal>Collective memory for teams — private beta</p>
+            <h1 class="display hero__title" data-split>Your company<br />already knows.</h1>
+            <div class="hero__foot">
+              <p class="body hero__body" data-split="soft">
+                Vela listens across every document, thread and decision your team has ever made, and answers any question in plain language. With receipts.
+              </p>
+              <div class="hero__actions" data-reveal>
+                <a class="btn btn--iris" href="#begin" data-magnetic><span>Request access</span></a>
+                <a class="link" href="#entropy" data-link>See how it thinks</a>
+              </div>
+            </div>
+          </div>
+          <div class="fig mono fig--br" data-reveal><span>Fig. 01</span> The organisational mind</div>
+          <div class="scroll-cue mono" data-reveal><span class="scroll-cue__line"></span>Scroll</div>
+        </div>
+      </section>
+
+      <!-- 02 Entropy -->
+      <section class="chapter chapter--entropy" id="entropy" data-stops="scatter" data-name="Entropy" style="--h: 230">
+        <div class="stage">
+          <h2 class="display display--xl entropy__title" data-split>
+            Knowledge never<br />disappears. It <span class="scatter" data-scatter>scatters.</span>
+          </h2>
+          <p class="body entropy__body" data-split="soft">
+            It hides in a thread from March, a doc nobody bookmarked, and the head of the colleague who left on Friday. Every week, the average team asks forty questions it has already answered.
+          </p>
+          <div class="fig mono fig--bl" data-reveal><span>Fig. 02</span> Entropy, measured in tabs</div>
+        </div>
+      </section>
+
+      <!-- 03 Silos -->
+      <section class="chapter chapter--silos" id="silos" data-stops="silos" data-name="Silos" style="--h: 230">
+        <div class="stage">
+          <div class="silos__center">
+            <h2 class="display silos__title" data-split>Seven tools.<br />Seven versions<br />of the truth.</h2>
+            <p class="body silos__body" data-split="soft">None of them talk to each other. So your people do, all day, in meetings about where the other meeting's notes went.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 Orbit -->
+      <section class="chapter chapter--orbit" id="orbit" data-stops="vortex" data-name="Orbit" style="--h: 250">
+        <div class="stage">
+          <h2 class="display orbit__title" data-split>Vela pulls every<br />fragment into<br />one orbit.</h2>
+          <ol class="facts">
+            <li data-reveal><span class="mono">01</span><div><b>Connected in four minutes.</b> Forty-two native sources, no migration.</div></li>
+            <li data-reveal><span class="mono">02</span><div><b>Permission-aware.</b> It inherits who can see what, line by line.</div></li>
+            <li data-reveal><span class="mono">03</span><div><b>Nothing moves.</b> Your data stays exactly where it lives.</div></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 05 Question -->
+      <section class="chapter chapter--question" id="question" data-stops="query" data-name="Question" style="--h: 260">
+        <div class="stage">
+          <p class="eyebrow mono question__eyebrow" data-reveal>Ask it like you'd ask a colleague</p>
+          <div class="query" data-query>
+            <span class="query__text" data-query-text></span><span class="query__caret"></span>
+          </div>
+          <div class="fig mono fig--br" data-reveal><span>Fig. 05</span> A question, in its natural habitat</div>
+        </div>
+      </section>
+
+      <!-- 06 Answer -->
+      <section class="chapter chapter--answer" id="answer" data-stops="answer" data-name="Answer" style="--h: 250">
+        <div class="stage">
+          <div class="answer">
+            <p class="answer__meta mono" data-reveal><span class="dot"></span>Vela · answered in 1.4s · 3 sources</p>
+            <p class="answer__text" data-read>
+              The launch moved because the payments partner needed six more weeks to certify<sup>1</sup>. Inês proposed May on the February planning call<sup>2</sup>, and finance confirmed the budget shift the next morning<sup>3</sup>.
+            </p>
+            <ul class="sources">
+              <li data-reveal><span class="mono">1</span>Partner sync, notes <em>Docs</em></li>
+              <li data-reveal><span class="mono">2</span>#launch-lisbon <em>Threads</em></li>
+              <li data-reveal><span class="mono">3</span>Re: Q2 reforecast <em>Inbox</em></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 Hive -->
+      <section class="chapter chapter--hive" id="hive" data-stops="network" data-name="Hive" style="--h: 250">
+        <div class="stage">
+          <div class="hive">
+            <h2 class="display hive__title" data-split>A hive mind<br />that never<br />forgets.</h2>
+            <dl class="stats">
+              <div data-reveal><dt class="stat" data-count-to="312">0</dt><dd>sources woven into one memory</dd></div>
+              <div data-reveal><dt class="stat" data-count-to="1.4" data-decimals="1" data-suffix="s">0</dt><dd>median time to a cited answer</dd></div>
+              <div data-reveal><dt class="stat" data-count-to="0" data-from="100" data-suffix="">100</dt><dd>copies of your data. Ever.</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08 Principles -->
+      <section class="chapter chapter--principles" id="principles" data-stops="vault,helix,knot" data-name="Principles" style="--h: 420">
+        <div class="stage">
+          <p class="eyebrow mono principles__eyebrow" data-reveal>Three principles</p>
+          <div class="track" data-track>
+            <article class="panel">
+              <span class="panel__num">01</span>
+              <h3 class="display panel__title">Private by<br />architecture.</h3>
+              <p class="body">Vela reads where your data already lives and inherits every permission. If you can't open it, Vela can't quote it.</p>
+            </article>
+            <article class="panel">
+              <span class="panel__num">02</span>
+              <h3 class="display panel__title">Fluent in<br />your dialect.</h3>
+              <p class="body">Acronyms, codenames, the nickname for that Q3 project. Vela learns how your company actually speaks.</p>
+            </article>
+            <article class="panel">
+              <span class="panel__num">03</span>
+              <h3 class="display panel__title">Lives where<br />you work.</h3>
+              <p class="body">In your browser, your chat, your terminal. Ask from anywhere and the answer comes to you.</p>
+            </article>
+          </div>
+          <div class="dots" aria-hidden="true"><span data-dot></span><span data-dot></span><span data-dot></span></div>
+        </div>
+      </section>
+
+      <!-- 09 Mark -->
+      <section class="chapter chapter--mark" id="mark" data-stops="mark" data-name="Mark" style="--h: 220">
+        <div class="stage">
+          <p class="body mark__line" data-split="soft">One question away from everything your company has ever learned.</p>
+          <div class="wordmark" aria-label="vela" data-wordmark><span>v</span><span>e</span><span>l</span><span>a</span></div>
+        </div>
+      </section>
+
+      <!-- 10 Begin -->
+      <section class="chapter chapter--begin" id="begin" data-stops="finale" data-name="Begin">
+        <div class="stage stage--free">
+          <div class="begin">
+            <h2 class="display display--xl begin__title" data-split>Ask your company<br />anything.</h2>
+            <form class="access" data-form novalidate>
+              <label class="sr-only" for="email">Work email</label>
+              <input id="email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required />
+              <button class="btn btn--iris" type="submit" data-magnetic><span>Request access</span></button>
+              <p class="access__note mono" data-form-note>Private beta. We onboard ten teams a week.</p>
+            </form>
+          </div>
+          <footer class="footer">
+            <div class="footer__col">
+              <span class="logo-mark logo-mark--sm" data-logo></span>
+              <span class="mono">© 2026 Vela Labs Ltd.</span>
+            </div>
+            <div class="footer__col footer__links">
+              <a href="#entropy" data-link>Manifesto</a>
+              <a href="#principles" data-link>Principles</a>
+              <a href="#hive" data-link>Careers</a>
+              <a href="#begin" data-link>Privacy</a>
+            </div>
+            <div class="footer__col footer__links">
+              <a href="#top" data-link>X / Twitter</a>
+              <a href="#top" data-link>LinkedIn</a>
+              <a href="#top" data-link class="footer__top">Back to the origin ↑</a>
+            </div>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./src/main.ts"></script>
+  </body>
 </html>
