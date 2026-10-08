@@ -1,16 +1,15 @@
 # Assignment 2 – Adım Adım Komut Rehberi
 
 Bu rehberi kendi bilgisayarında (Linux / WSL) çalıştır. Komutları **sırayla** kopyala-yapıştır.
-Başlamadan önce aşağıdaki iki değeri kendi bilgilerinle değiştir:
+Bilgiler bu rehbere işlendi:
 
-| Yer tutucu    | Ne yazacaksın                       | Örnek          |
-|---------------|-------------------------------------|----------------|
-| `NETID`       | Okul NetID'n                        | `ms1234`       |
-| `GITHUB_USER` | GitHub kullanıcı adın               | `muhammetsefa1`|
+| Bilgi             | Değer            |
+|-------------------|------------------|
+| NetID             | `muhammethundur` |
+| GitHub kullanıcı adı | `muhammetsefa1` |
+| Ödev reposu       | `https://github.com/muhammetsefa1/git-docker-assignment` |
 
-> İpucu: Terminalde bir kere `export NETID=ms1234` ve `export GITHUB_USER=muhammetsefa1`
-> yazarsan aşağıdaki komutlardaki `$NETID` / `$GITHUB_USER` otomatik dolar.
-> (`script` başladıktan **sonra** export et ki kayıtta görünsün.)
+> Komutlardaki `$NETID` ve `$GITHUB_USER`, kaydı başlattıktan sonra yapılan `export` satırlarıyla otomatik dolar.
 
 ---
 
@@ -24,7 +23,7 @@ Başlamadan önce aşağıdaki iki değeri kendi bilgilerinle değiştir:
    git config --global user.email "github-mailin@ornek.com"
    ```
 3. HTTPS ile push için GitHub şifresi değil **Personal Access Token** gerekir
-   (veya SSH anahtarı kullan; o zaman remote URL'yi `git@github.com:GITHUB_USER/git-docker-assignment.git` yap).
+   (veya SSH anahtarı kullan; o zaman remote URL'yi `git@github.com:muhammetsefa1/git-docker-assignment.git` yap).
 4. Docker çalışıyor mu kontrol et: `docker info`
 
 ---
@@ -33,12 +32,12 @@ Başlamadan önce aşağıdaki iki değeri kendi bilgilerinle değiştir:
 
 ```bash
 cd ~
-script assignment_2_NETID.txt
-export NETID=NETID                # kendi NetID'n
-export GITHUB_USER=GITHUB_USER    # kendi kullanıcı adın
+script assignment_2_muhammethundur.txt
+export NETID=muhammethundur
+export GITHUB_USER=muhammetsefa1
 ```
 
-> Ara verirsen: `exit` ile kaydı kapat, devam ederken `script -a assignment_2_NETID.txt`.
+> Ara verirsen: `exit` ile kaydı kapat, devam ederken `script -a assignment_2_muhammethundur.txt`.
 > Transcript dosyası `~` içinde olduğu için repoya girmez (zaten `.gitignore` da `assignment_2_*.txt` dosyalarını hariç tutuyor).
 
 ---
@@ -93,7 +92,7 @@ grep -n 'body =' app.py
 
 Beklenen satır:
 ```python
-        body = "Advanced Git Docker App\nStatus: healthy - NETID\n"
+        body = "Advanced Git Docker App\nStatus: healthy - muhammethundur\n"
 ```
 (sed çalışmazsa `nano app.py` ile bu satırı elle böyle yaz.)
 
@@ -144,7 +143,7 @@ docker run -d --name app-test -p 8080:8000 git-docker-app:test # 8080 -> 8000
 sleep 2
 docker ps                                                      # çalışan listede
 docker port app-test                                           # 8000/tcp -> 0.0.0.0:8080
-curl -i http://localhost:8080                                  # 200 OK + "Status: healthy - NETID"
+curl -i http://localhost:8080                                  # 200 OK + "Status: healthy - muhammethundur"
 docker logs app-test                                           # loglar
 docker inspect app-test                                        # konfigürasyon
 docker inspect --format '{{.Name}} {{.Config.Image}} {{json .HostConfig.PortBindings}}' app-test
@@ -265,16 +264,16 @@ git diff                                # iki rakip değişiklik yan yana
 Dosyada şunu göreceksin:
 ```
 <<<<<<< HEAD
-        body = "Advanced Git Docker App v2.0\nStatus: healthy - NETID\n"
+        body = "Advanced Git Docker App v2.0\nStatus: healthy - muhammethundur\n"
 =======
-        body = "Advanced Git Docker App (Docker Edition)\nStatus: healthy - NETID\n"
+        body = "Advanced Git Docker App (Docker Edition)\nStatus: healthy - muhammethundur\n"
 >>>>>>> title-edition
 ```
 
 **Elle çöz:** `nano app.py` aç, bu 5 satırı silip **ikisinin de niyetini koruyan** tek satır yaz:
 
 ```python
-        body = "Advanced Git Docker App v2.0 (Docker Edition)\nStatus: healthy - NETID\n"
+        body = "Advanced Git Docker App v2.0 (Docker Edition)\nStatus: healthy - muhammethundur\n"
 ```
 
 (Girintiyi koru: 8 boşluk. Kaydet: `Ctrl+O`, `Enter`, çık: `Ctrl+X`.)
@@ -343,7 +342,7 @@ git push -u origin docs/usage
 
 **GitHub web sitesinde (zorunlu):**
 
-1. `https://github.com/GITHUB_USER/git-docker-assignment` → çıkan **"Compare & pull request"** butonuna tıkla
+1. `https://github.com/muhammetsefa1/git-docker-assignment` → çıkan **"Compare & pull request"** butonuna tıkla
    (yoksa *Pull requests → New pull request*, base: `main`, compare: `docs/usage`).
 2. **Title:** `Add usage documentation to README`
 3. **Description:** `Adds a Usage section explaining how to build, run, test and clean up the app with Docker, and how to run it without Docker.`
@@ -386,7 +385,7 @@ docker run --rm --name network-test --network app-net curlimages/curl:8.5.0 http
 Beklenen yanıt:
 ```
 Advanced Git Docker App v2.0 (Docker Edition)
-Status: healthy - NETID
+Status: healthy - muhammethundur
 ```
 
 Temizlik:
@@ -422,14 +421,14 @@ git log --oneline --graph --decorate --all
 exit                            # kaydı bitir
 ```
 
-`~/assignment_2_NETID.txt` dosyasını teslim et.
+`~/assignment_2_muhammethundur.txt` dosyasını teslim et.
 
 ---
 
 ## Beklenen son commit grafiği (yaklaşık)
 
 ```
-*   (HEAD -> main, origin/main) Merge pull request #1 from GITHUB_USER/docs/usage
+*   (HEAD -> main, origin/main) Merge pull request #1 from muhammetsefa1/docs/usage
 |\
 | * Add usage documentation to README
 |/
@@ -464,4 +463,4 @@ exit                            # kaydı bitir
 - **`docker: permission denied`:** komutların başına `sudo` ekle ya da kullanıcını `docker` grubuna ekle.
 - **`port is already allocated`:** önceki container duruyor; `docker rm -f app-test`.
 - **`curl: (56) Recv failure`:** container yeni açıldı, 2 saniye bekleyip tekrar dene.
-- **macOS kullanıyorsan:** `sed -i` yerine `sed -i ''` yaz; `script` komutu `script assignment_2_NETID.txt` şeklinde aynı çalışır, devam etmek için `script -a assignment_2_NETID.txt`.
+- **macOS kullanıyorsan:** `sed -i` yerine `sed -i ''` yaz; `script` komutu `script assignment_2_muhammethundur.txt` şeklinde aynı çalışır, devam etmek için `script -a assignment_2_muhammethundur.txt`.
